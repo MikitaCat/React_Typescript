@@ -1,6 +1,10 @@
 import React, { useState, useRef } from 'react';
 
-const ToDoForm: React.FC = () => {
+interface TodoFormProps {
+  onAdd(title: string): void;
+}
+
+const ToDoForm: React.FC<TodoFormProps> = (props) => {
   // The commented out lines are the writing of handling Iput using useState !!!
   //It works the same !!!
   //   const [title, setTitle] = useState<string>(''); !!!
@@ -15,7 +19,8 @@ const ToDoForm: React.FC = () => {
     if (event.key === 'Enter') {
       //   console.log(title); !!!
       //   setTitle(''); !!!
-      console.log(ref.current?.value);
+      props.onAdd(ref.current!.value);
+      ref.current!.value = '';
     }
   };
 
