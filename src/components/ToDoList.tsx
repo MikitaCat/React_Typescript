@@ -3,9 +3,11 @@ import { Itodo } from '../interfases';
 
 type ToDoListProps = {
   todos: Itodo[];
+  onToggle(id: number): void;
+  onRemove: (id: number) => void;
 };
 
-const ToDoList: React.FC<ToDoListProps> = ({ todos }) => {
+const ToDoList: React.FC<ToDoListProps> = ({ todos, onRemove, onToggle }) => {
   return (
     <ul>
       {todos.map((todo) => {
@@ -18,9 +20,15 @@ const ToDoList: React.FC<ToDoListProps> = ({ todos }) => {
         return (
           <li key={todo.id} className={classes.join(' ')}>
             <label>
-              <input type="checkbox" checked={todo.completed} />
+              <input
+                type="checkbox"
+                checked={todo.completed}
+                onChange={onToggle.bind(null, todo.id)}
+              />
               <span>{todo.title}</span>
-              <i className="material-icons red-text">delete</i>
+              <i className="material-icons red-text" onClick={() => onRemove(todo.id)}>
+                delete
+              </i>
             </label>
           </li>
         );
