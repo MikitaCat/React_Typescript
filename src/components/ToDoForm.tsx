@@ -5,8 +5,8 @@ interface TodoFormProps {
 }
 
 const ToDoForm: React.FC<TodoFormProps> = (props) => {
-  // The commented out lines are the writing of handling Iput using useState !!!
-  //It works the same !!!
+  // The commented out lines are the writing of handling Input with using useState !!!
+  // It works the same !!!
   //   const [title, setTitle] = useState<string>(''); !!!
 
   //   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => { !!!
