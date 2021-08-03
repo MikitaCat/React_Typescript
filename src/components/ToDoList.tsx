@@ -1,7 +1,8 @@
 import React from 'react';
+import { Itodo } from '../interfases';
 
 type ToDoListProps = {
-  todos: any[];
+  todos: Itodo[];
 };
 
 const ToDoList: React.FC<ToDoListProps> = ({ todos }) => {
@@ -9,10 +10,10 @@ const ToDoList: React.FC<ToDoListProps> = ({ todos }) => {
     <ul>
       {todos.map((todo) => {
         return (
-          <li className="todo">
+          <li key={todo.id} className="todo">
             <label>
-              <input type="checkbox" />
-              <span></span>
+              <input type="checkbox" checked={todo.completed} />
+              <span>{todo.title}</span>
               <i className="material-icons red-text">Delete</i>
             </label>
           </li>
