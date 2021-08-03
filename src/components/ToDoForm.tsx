@@ -1,24 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 const ToDoForm: React.FC = () => {
-  const [title, setTitle] = useState<string>('');
+  // The commented out lines are the writing of handling Iput using useState !!!
+  //It works the same !!!
+  //   const [title, setTitle] = useState<string>(''); !!!
 
-  const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setTitle(event.target.value);
-  };
+  //   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => { !!!
+  //     setTitle(event.target.value); !!!
+  //   }; !!!
+
+  const ref = useRef<HTMLInputElement>(null);
 
   const keyPressHandler = (event: React.KeyboardEvent) => {
     if (event.key === 'Enter') {
-      console.log(title);
+      //   console.log(title); !!!
+      //   setTitle(''); !!!
+      console.log(ref.current?.value);
     }
   };
 
   return (
     <div className="input-field mt2">
       <input
-        onChange={changeHandler}
+        // onChange={changeHandler} !!!
+        // value={title} !!!
         onKeyPress={keyPressHandler}
-        value={title}
+        ref={ref}
         type="text"
         id="title"
         placeholder="Task Name..."
