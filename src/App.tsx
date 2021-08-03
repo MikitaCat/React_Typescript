@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from './components/Navbar';
+import ToDoForm from './components/ToDoForm';
 
 const App: React.FC = () => {
   return (
@@ -7,7 +8,7 @@ const App: React.FC = () => {
       <>
         <Navbar />
         <div className="container">
-          <h1>Test</h1>
+          <ToDoForm />
         </div>
       </>
     </div>

@@ -3,7 +3,7 @@ import React from 'react';
 const Navbar: React.FC = () => {
   return (
     <nav>
-      <div className="nav-wrapper">
+      <div className="nav-wrapper blue darken-4 px1">
         <a href="/" className="brand-logo">
           Firts TypeScript App
         </a>
