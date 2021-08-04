@@ -23,14 +23,18 @@ const App: React.FC = () => {
         if (todo.id === id) {
           todo.completed = !todo.completed;
         }
-        console.log(todo.completed);
-
         return todo;
       }),
     );
   };
 
-  const removeHandler = (id: number) => {};
+  const removeHandler = (id: number) => {
+    setTodos((prev) =>
+      prev.filter((todo) => {
+        return todo.id !== id;
+      }),
+    );
+  };
 
   return (
     <div className="App">
