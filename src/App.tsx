@@ -23,6 +23,8 @@ const App: React.FC = () => {
         if (todo.id === id) {
           todo.completed = !todo.completed;
         }
+        console.log(todo.completed);
+
         return todo;
       }),
     );
