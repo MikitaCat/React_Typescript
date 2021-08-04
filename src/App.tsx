@@ -29,11 +29,15 @@ const App: React.FC = () => {
   };
 
   const removeHandler = (id: number) => {
-    setTodos((prev) =>
-      prev.filter((todo) => {
-        return todo.id !== id;
-      }),
-    );
+    const shouldRemove = window.confirm('Are you shure?');
+
+    if (shouldRemove) {
+      setTodos((prev) =>
+        prev.filter((todo) => {
+          return todo.id !== id;
+        }),
+      );
+    }
   };
 
   return (
