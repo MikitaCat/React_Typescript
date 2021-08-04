@@ -4,6 +4,8 @@ import ToDoForm from './components/ToDoForm';
 import ToDoList from './components/ToDoList';
 import { Itodo } from './interfases';
 
+declare var confirm: (question: string) => boolean;
+
 const App: React.FC = () => {
   const [todos, setTodos] = useState<Itodo[]>([]);
 
@@ -29,7 +31,7 @@ const App: React.FC = () => {
   };
 
   const removeHandler = (id: number) => {
-    const shouldRemove = window.confirm('Are you shure?');
+    const shouldRemove = confirm('Are you shure?');
 
     if (shouldRemove) {
       setTodos((prev) =>
