@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import ToDoForm from './components/ToDoForm';
 import ToDoList from './components/ToDoList';
@@ -8,6 +8,15 @@ declare var confirm: (question: string) => boolean;
 
 const App: React.FC = () => {
   const [todos, setTodos] = useState<Itodo[]>([]);
+
+  useEffect(() => {
+    const saved = JSON.parse(localStorage.getItem('todos') || '[]') as Itodo[];
+    setTodos(saved);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   const addHandler = (title: string) => {
     const newTodo: Itodo = {
