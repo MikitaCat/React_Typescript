@@ -1,17 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Navbar from './components/Navbar';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import AboutPage from './pages/AboutPage';
 import TodosPage from './pages/TodosPage';
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <>
-        <Navbar />
-        <div className="container">
-          <TodosPage />
-        </div>
-      </>
-    </div>
+    <Router>
+      <Navbar />
+      <div className="container">
+        <Switch>
+          <Route component={TodosPage} exact path="/" />
+          <Route component={AboutPage} exact path="/info" />
+        </Switch>
+      </div>
+    </Router>
   );
 };
 
